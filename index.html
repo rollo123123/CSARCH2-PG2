@@ -4,24 +4,98 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="css/index.css">
     <title>IEEE-754 Decimal-64 floating point </title>
+
+
+
+    <script src="myscripts.js"></script>
 </head>
 
 <body>
     <nav id='menu'>
-        <input type='checkbox'><label></label>
+    <!-- menu -->
         <ul>
-          <li><a href='http://' class= "logo">IEEE-754 Decimal-64</a></li>
-          <li><a href='http://' class= "a">About</a></li>
+       
+        <li>
+        <input type="checkbox" id="toggle">
+        <label for="toggle">IEEE-754 Decimal-64</label>
+        <dialog>
+          <p style="margin-bottom: 20px">
+          Group 2 <br><br>
+          CHUA, EDRIC JARVIS<br>
+          CHUA, EDRIC JARVIS<br>
+          CHUA, EDRIC JARVIS<br>
+          CHUA, EDRIC JARVIS
+          </p>
+          <label for="toggle">Close</label>
+        </dialog>
+      </li>
         </ul>
       </nav>
 
-         
-       
-            
-        </div>
+
+<div class= "input-container">
+  <div id="Hex">
+    <h1>16 Digit Hex Input</h1>
+    <input  maxlength='16' onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 70) || (event.charCode >= 97 && event.charCode <= 102))"  placeholder='FFFFFFFFFFFFFFFF' id="Hex-input" />
+  <div>
     </div>
-    
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-    <!-- <script src="javascript/comment-section.js"> </script> -->
+ 
+  </div>
+    <div id="Binary">
+      <h1>64 Binary Input</h1>
+      <div class="Bit-container">
+        <div class="sign">
+          <!-- reference: https://www.w3docs.com/snippets/html/how-to-allow-only-positive-numbers-in-the-input-number-type.html -->
+
+          <input maxlength="1" type="[0-1]" type="number" min="0" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))"  class="form-control" id="sign" placeholder="Sign Bit" >
+        </div>
+        <div class="combination">
+          <input maxlength="5" type="[0-5]" type="number" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))" class="form-control" id="combination" placeholder="Combination">
+        </div>
+        <div class="exponent">
+          <input  maxlength="8" type="[0-8]" type="number" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))" class="form-control" id="exponent" placeholder="Exponent" >
+        </div>
+      </div>
+        <div class="coefficient">
+          <input maxlength="10" type="[0-10]"  type="number"  onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))" class="form-control "id="coefficient1" placeholder="Coefficient Continuation">
+          <input maxlength="10" type="[0-10]"  type="number"  onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))" class="form-control "id="coefficient2" placeholder="Coefficient Continuation">
+          <input maxlength="10" type="[0-10]"  type="number"  onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))" class="form-control "id="coefficient3" placeholder="Coefficient Continuation">
+        
+        </div>
+        <div class="coefficient_2nd">
+            <input maxlength="10" type="[0-10]"  type="number" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))" class="form-control "id="coefficient4" placeholder="Coefficient Continuation">
+          <input maxlength="10" type="[0-10]"  type="number" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))" class="form-control "id="coefficient5" placeholder="Coefficient Continuation">
+        </div>
+
+
+
+
+</div>
+     
+  </div>
+  <br><br> <br><br> <br><br>
+    <div class="button-container">
+
+      <button  class= "button", id="convert">Convert</button>
+      <button  class= "button" ,id="copy">Copy to Clipboard</button>
+
+      <div class="radio-container">
+      <label class="white-label"><input type="radio"  name="decimal-type" value="Fixed" onclick="hideDecimals()"> Fixed Decimal</label>
+      <label class="white-label"><input type="radio"  name="decimal-type" value="Floating" onclick=" showDecimals() "> Floating Point</label>
+      </div>
+      <div id="decimal-input" style="display:none;">
+        <label class="white-label" >Number of Decimals:</label>
+        <input maxlength="2" type="number" name="decimals"   onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"  min="1" max="20">
+      </div>
+
+    </div>
+    <div class="Answer-container">
+      <h1>Answer</h1>
+
+      <!-- fixed DECIMAL?:   https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-data-types -->
+      <h1>9.99999999999999999999</h1>
+
+    </div>
+
 
 </body>
