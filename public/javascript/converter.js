@@ -9,78 +9,86 @@ function hextoDecimal() {
     var expoField = bin.substring(6,14);
     const coefficients = [bin.substring(14,24), bin.substring(24,34), bin.substring(34,44), bin.substring(44, 54), bin.substring(54)];
 
-    //Checks the first two binary digit of Combifield to determine MSD
-    if (checkMSD(combiField.substring(0,2))) {
-      //If this is true, then MSD is 8 or 9
-
-      //Finding out the exponent
-      var exponentString = combiField.substring(2,4);
-      exponentString = exponentString.concat(expoField);
-      var exponent = parseInt(exponentString, 2);
-      var exponent = exponent - 398;
-
-      //Finding out what the actual MSD is
-      if (combiField.charAt(4) === '0')
-        var MSD = 8
-      else
-        var MSD = 9;
-    }
+    // infinity Special case
+    if (combiField === "11110")
+      var output = "infinity"; 
+    // NaN Special case
+    else if (combiField === "11111")
+      var output = "NaN";
     else {
+        //Checks the first two binary digit of Combifield to determine MSD
+      if (checkMSD(combiField.substring(0,2))) {
+        //If this is true, then MSD is 8 or 9
 
-      //Finding out the exponent
-      var exponentString = combiField.substring(0,2);
-      exponentString = exponentString.concat(expoField);
-      var exponent = parseInt(exponentString, 2);
-      var exponent = exponent - 398;
+        //Finding out the exponent
+        var exponentString = combiField.substring(2,4);
+        exponentString = exponentString.concat(expoField);
+        var exponent = parseInt(exponentString, 2);
+        var exponent = exponent - 398;
 
-      //Finding out what the actual MSD is
-      var msdString = combiField.substring(2);
-      var MSD = parseInt(msdString, 2);
-    }
-
-    //Preparing the sign
-    if (sign === "1")
-      var output = "-";
-    else
-      var output = "";
-
-    //Getting the decimal
-    var decimal = MSD.toString();
-
-    for (let i = 0; i < 5; i++) {
-      decimal = decimal.concat(checkBCD(coefficients[i]));
-    }
-
-
-
-    if (document.getElementById("fixed").checked) {
-
-      if (exponent < 0) {
-        let overflow = decimal.length + exponent;
-        if (overflow < 0)
-          output = output.concat("0." + genZeroString(Math.abs(overflow)) + decimal);
-        else if (overflow > 0)
-          output = output.concat(decimal.substring(0,overflow) + "." + decimal.substring(overflow));
+        //Finding out what the actual MSD is
+        if (combiField.charAt(4) === '0')
+          var MSD = 8
         else
-          output = output.concat(decimal);
+          var MSD = 9;
       }
       else {
-        output = output.concat(decimal);
-        output = output.concat(genZeroString(exponent));
+
+        //Finding out the exponent
+        var exponentString = combiField.substring(0,2);
+        exponentString = exponentString.concat(expoField);
+        var exponent = parseInt(exponentString, 2);
+        var exponent = exponent - 398;
+
+        //Finding out what the actual MSD is
+        var msdString = combiField.substring(2);
+        var MSD = parseInt(msdString, 2);
       }
-      
-    }
-    else if (document.getElementById("floating").checked) {
-      //Output with floating point
-      let numJumps = decimal.length-1;
-      exponent = exponent + numJumps;
 
-      output = output.concat(decimal.charAt(0) + "." + decimal.substring(1));
-      output = output.concat(" x 10^");
+      //Preparing the sign
+      if (sign === "1")
+        var output = "-";
+      else
+        var output = "";
 
-      output = output.concat(exponent.toString());
-  
-      console.log(output);
+      //Getting the decimal
+      var decimal = MSD.toString();
+
+      for (let i = 0; i < 5; i++) {
+        decimal = decimal.concat(checkBCD(coefficients[i]));
+      }
+
+
+
+      if (document.getElementById("fixed").checked) {
+
+        if (exponent < 0) {
+          let overflow = decimal.length + exponent;
+          if (overflow < 0)
+            output = output.concat("0." + genZeroString(Math.abs(overflow)) + decimal);
+          else if (overflow > 0)
+            output = output.concat(decimal.substring(0,overflow) + "." + decimal.substring(overflow));
+          else
+            output = output.concat(decimal);
+        }
+        else {
+          output = output.concat(decimal);
+          output = output.concat(genZeroString(exponent));
+        }
+        
+      }
+      else if (document.getElementById("floating").checked) {
+        //Output with floating point
+        let numJumps = decimal.length-1;
+        exponent = exponent + numJumps;
+
+        output = output.concat(decimal.charAt(0) + "." + decimal.substring(1));
+        output = output.concat(" x 10^");
+
+        output = output.concat(exponent.toString());
+    
+        console.log(output);
+      }
     }
 
     document.getElementById("output").innerHTML = output;
