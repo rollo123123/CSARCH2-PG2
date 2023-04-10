@@ -2,7 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv').config();
 const ejs = require('ejs');
 const hostname = process.env.HOSTNAME;
-const port = process.env.PORT;
+const port = 3000;
 
 
 
@@ -25,6 +25,6 @@ app.get('/' , function(req, res) {
 
 
 
-app.listen(port, hostname, ()=> {
-	console.log(`Server is now running at http://localhost:${port}`);
+app.listen(process.env.PORT || port, function() {
+    console.log('Node server is running on port ' + port + '...');
 });

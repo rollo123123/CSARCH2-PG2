@@ -7,7 +7,7 @@
     <title>IEEE-754 Decimal-64 floating point </title>
 
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+   <script src="javascript\validators.js"></script>
     <script src="javascript\converter.js"></script>
     <script src="javascript\myscripts.js"></script>
 </head>
@@ -81,8 +81,8 @@
       <button  class= "button"   onclick="Switch()"  id="switch">Switch to Binary</button>
       </div>
       <div class="radio-container">
-      <label class="white-label"><input type="radio"  name="decimal-type" value="Fixed" onclick="hideDecimals()"> Fixed Decimal</label>
-      <label class="white-label"><input type="radio"  name="decimal-type" value="Floating" onclick=" showDecimals() "> Floating Point</label>
+      <label class="white-label"><input type="radio" id = "fixed" name="decimal-type" value="Fixed" onclick="hideDecimals()" checked> Fixed Decimal</label>
+      <label class="white-label"><input type="radio" id = "floating" name="decimal-type" value="Floating" onclick=" showDecimals() "> Floating Point</label>
       </div>
       <div id="decimal-input" style="display:none;">
         <label class="white-label" id="num_dec">Number of Decimals:</label>
@@ -98,7 +98,7 @@
       <h1 id="Answer">Answer</h1>
 
       <!-- fixed DECIMAL?:   https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-data-types -->
-      <h1>9.99999999999999999999</h1>
+      <h1 id="output">Output Here</h1>
 
     </div>
 
