@@ -18,7 +18,7 @@ function showDecimals() {
     const toggle = document.getElementById("toggle");
     toggle.addEventListener("change", () => {
       if (toggle.checked) {
-        alert("Group 2 \n\nCHUA, EDRIC JARVIS\nCHUA, EDRIC JARVIS\nCHUA, EDRIC JARVIS\nCHUA, EDRIC JARVIS");
+        alert("Group 2 \n\nABDON, AARON LENSMER\nCHUA, EDRIC JARVIS\nLIM, HYENNE AUDREY\nVELARDE, ROLLO DENZEL");
       }
     });
 
@@ -50,6 +50,7 @@ function showDecimals() {
      document.getElementById("all-container").style.display = "block";
      document.getElementById("all-container").style.margin = "6em auto";
      document.getElementById("Hex-input").style.display = "none";
+     document.getElementById("switch").innerHTML =   'Switch to Hexadecimal';
      myForm.reset();
     }else{
       document.getElementById("title").innerHTML = '16 Hex Input';
@@ -57,6 +58,7 @@ function showDecimals() {
       document.getElementById("Hex-input").style.display = "flex";
       document.getElementById("convertbin").style.display = "none";
       document.getElementById("converthex").style.display = "block";
+     document.getElementById("switch").innerHTML =   'Switch to Binary';
       myForm.reset();
     }
     pressed = !pressed

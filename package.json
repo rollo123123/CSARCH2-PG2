@@ -17,5 +17,5 @@
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "IEEE-754 Decimal-64 floating point translator (including all special cases)"
 }

@@ -13,7 +13,7 @@ npm install
 
 npm install dotenv
 
-supervisor -g 
+npm install supervisor -g 
 
 npm install express --save
 
