@@ -86,7 +86,19 @@
       </div>
       <div id="decimal-input" style="display:none;">
         <label id="num_dec">Number of Decimals:</label>
-        <input maxlength="2" type="number" id="decimals" name="decimals"   onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"  min="1" max="20">
+
+        <select name="dropdown" id="decimals" >
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+        </select>
+        <!-- <input maxlength="2" type="number" id="decimals" name="decimals"   onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"  min="1" max="20"> -->
       </div>
    
 
