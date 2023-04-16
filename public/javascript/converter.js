@@ -68,24 +68,30 @@ function hextoDecimal() {
       }
 
 
-
       if (document.getElementById("fixed").checked) {
 
-        if (exponent < 0) {
-          let overflow = decimal.length + exponent;
-          if (overflow < 0)
-            output = output.concat("0." + genZeroString(Math.abs(overflow)) + decimal);
-          else if (overflow > 0)
-            output = output.concat(decimal.substring(0,overflow) + "." + decimal.substring(overflow));
-          else
-            output = output.concat(decimal);
-        }
-        else {
-          output = output.concat(decimal);
-          output = output.concat(genZeroString(exponent));
-        }
-        
-      }
+      // if (exponent < 0) {
+      //   let overflow = decimal.length + exponent;
+      //   if (overflow < 0)
+      //     output = output.concat("0." + genZeroString(Math.abs(overflow)) + decimal);
+      //   else if (overflow > 0)
+      //     output = output.concat(decimal.substring(0,overflow) + "." + decimal.substring(overflow));
+      //   else
+      //     output = output.concat(decimal);
+      // }
+      // else {
+      //   output = output.concat(decimal);
+      //   output = output.concat(genZeroString(exponent));
+      // }
+      var dropdown = document.getElementById("decimals")
+      var decimalPlaces = dropdown.value
+      var floatNum = parseFloat(decimal);
+      var multiplier = Math.pow(10, decimalPlaces);
+      var roundedNum = Math.round(floatNum * multiplier);
+      output = roundedNum.toString().substr(0, roundedNum.toString().length - decimalPlaces) + "." + roundedNum.toString().substr(roundedNum.toString().length - decimalPlaces);
+
+
+    }
       else if (document.getElementById("floating").checked) {
         //Output with floating point
         let numJumps = decimal.length-1;
@@ -332,23 +338,32 @@ function genZeroString(num) {
 
 
 
-    if (document.getElementById("fixed").checked) {
+     if (document.getElementById("fixed").checked) {
 
-      if (exponent < 0) {
-        let overflow = decimal.length + exponent;
-        if (overflow < 0)
-          output = output.concat("0." + genZeroString(Math.abs(overflow)) + decimal);
-        else if (overflow > 0)
-          output = output.concat(decimal.substring(0,overflow) + "." + decimal.substring(overflow));
-        else
-          output = output.concat(decimal);
-      }
-      else {
-        output = output.concat(decimal);
-        output = output.concat(genZeroString(exponent));
-      }
+      // if (exponent < 0) {
+      //   let overflow = decimal.length + exponent;
+      //   if (overflow < 0)
+      //     output = output.concat("0." + genZeroString(Math.abs(overflow)) + decimal);
+      //   else if (overflow > 0)
+      //     output = output.concat(decimal.substring(0,overflow) + "." + decimal.substring(overflow));
+      //   else
+      //     output = output.concat(decimal);
+      // }
+      // else {
+      //   output = output.concat(decimal);
+      //   output = output.concat(genZeroString(exponent));
+      // }
+      var dropdown = document.getElementById("decimals")
+      var decimalPlaces = dropdown.value
+      var floatNum = parseFloat(decimal);
+      var multiplier = Math.pow(10, decimalPlaces);
+      var roundedNum = Math.round(floatNum * multiplier);
+      output = roundedNum.toString().substr(0, roundedNum.toString().length - decimalPlaces) + "." + roundedNum.toString().substr(roundedNum.toString().length - decimalPlaces);
+
+
     }
     else if (document.getElementById("floating").checked) {
+      console.log("it works fuck yeah ")
       //Output with floating point
       let numJumps = decimal.length-1;
       exponent = exponent + numJumps;
