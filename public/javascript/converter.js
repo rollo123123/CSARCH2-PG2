@@ -117,8 +117,25 @@ function hexDigitToBinary(digit) {
 function hextoBinary(hex) {
   var binary = "";
 
+  var firstnumbers = "";
   for (let i = 0; i < hex.length; i++) {
-    binary = binary.concat(hexDigitToBinary(hex.charAt(i)));
+      // console.log(hex.charAt(i))
+
+      if(i == 0 ){
+
+        firstnumbers = firstnumbers.concat(hexDigitToBinary(hex.charAt(i)));
+
+        binary = binary.concat(firstnumbers.charAt(1));
+        binary = binary.concat(firstnumbers.charAt(2));
+        binary = binary.concat(firstnumbers.charAt(3));
+        console.log(firstnumbers.charAt(1))
+        console.log(firstnumbers.charAt(2))
+        console.log(firstnumbers.charAt(3))
+      }else{
+        binary = binary.concat(hexDigitToBinary(hex.charAt(i)));
+      }
+
+   // console.log(hexDigitToBinary(hex.charAt(i)))
   }
 
   return binary;
