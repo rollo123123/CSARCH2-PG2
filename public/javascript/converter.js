@@ -363,7 +363,6 @@ function genZeroString(num) {
 
     }
     else if (document.getElementById("floating").checked) {
-      console.log("it works fuck yeah ")
       //Output with floating point
       let numJumps = decimal.length-1;
       exponent = exponent + numJumps;

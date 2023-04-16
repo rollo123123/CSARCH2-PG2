@@ -12,6 +12,30 @@ function showDecimals() {
    
   }
 
+  function copyClipboard() {
+    const divElement = document.getElementById('output');
+
+    // Retrieve the text content of the div element
+    const divValue = divElement.textContent;
+
+    // Create a temporary textarea element to store the value
+    const tempElement = document.createElement('textarea');
+    tempElement.value = divValue;
+
+    // Append the temporary element to the document body
+    document.body.appendChild(tempElement);
+
+    // Select the text content in the temporary element
+    tempElement.select();
+
+    // Copy the selected text to the clipboard
+    document.execCommand('copy');
+
+    // Remove the temporary element from the document body
+    document.body.removeChild(tempElement);
+
+  }
+
   window.onload = () => {
   
 
