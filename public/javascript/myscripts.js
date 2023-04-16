@@ -13,26 +13,39 @@ function showDecimals() {
   }
 
   function copyClipboard() {
-    const divElement = document.getElementById('output');
+    // const divElement = document.getElementById('output');
 
-    // Retrieve the text content of the div element
-    const divValue = divElement.textContent;
+    //  Retrieve the text content of the div element
+    // const divValue = divElement.textContent;
 
-    // Create a temporary textarea element to store the value
-    const tempElement = document.createElement('textarea');
-    tempElement.value = divValue;
+    //  Create a temporary textarea element to store the value
+    // const tempElement = document.createElement('textarea');
+    // tempElement.value = divValue;
 
-    // Append the temporary element to the document body
-    document.body.appendChild(tempElement);
+    //  Append the temporary element to the document body
+    // document.body.appendChild(tempElement);
 
-    // Select the text content in the temporary element
-    tempElement.select();
+    //  Select the text content in the temporary element
+    // tempElement.select();
 
-    // Copy the selected text to the clipboard
-    document.execCommand('copy');
+    //  Copy the selected text to the clipboard
+    // document.execCommand('copy');
 
-    // Remove the temporary element from the document body
-    document.body.removeChild(tempElement);
+    //  Remove the temporary element from the document body
+    // document.body.removeChild(tempElement);
+
+    const divContent = document.getElementById("output").innerHTML;
+    const blob = new Blob([divContent], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "Result.txt";
+    document.body.appendChild(link);
+    link.click();
+
+    URL.revokeObjectURL(url);
+
 
   }
 
