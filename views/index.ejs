@@ -40,26 +40,26 @@
         <div class="sign">
           <!-- reference: https://www.w3docs.com/snippets/html/how-to-allow-only-positive-numbers-in-the-input-number-type.html -->
 
-          <input maxlength="1" type="[0-1]" type="number" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))"  class="form-control" id="sign" placeholder="Sign Bit" >
+          <input maxlength="1" type="[0-1]" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))"  class="form-control" id="sign" placeholder="Sign Bit" >
         </div>
         <div class="combination">
-          <input maxlength="5" type="[0-5]" type="number" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))" class="form-control" id="combination" placeholder="Combination">
+          <input maxlength="5" type="[0-5]" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))" class="form-control" id="combination" placeholder="Combination">
         </div>
         <div class="exponent">
-          <input  maxlength="8" type="[0-8]" type="number" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))" class="form-control" id="exponent" placeholder="Exponent" >
+          <input  maxlength="8" type="[0-8]" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))" class="form-control" id="exponent" placeholder="Exponent" >
         </div>
       </div>
 
       
         <div class="coefficient">
-          <input maxlength="10" type="[0-10]"  type="number"  onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))" class="form-control "id="coefficient1" placeholder="1st Coefficient">
-          <input maxlength="10" type="[0-10]"  type="number"  onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))" class="form-control "id="coefficient2" placeholder="2nd Coefficient">
-          <input maxlength="10" type="[0-10]"  type="number"  onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))" class="form-control "id="coefficient3" placeholder="3rd Coefficient">
+          <input maxlength="10" type="[0-10]"  onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))" class="form-control "id="coefficient1" placeholder="1st Coefficient">
+          <input maxlength="10" type="[0-10]"  onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))" class="form-control "id="coefficient2" placeholder="2nd Coefficient">
+          <input maxlength="10" type="[0-10]"  onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))" class="form-control "id="coefficient3" placeholder="3rd Coefficient">
         
         </div>
         <div class="coefficient_2nd">
-            <input maxlength="10" type="[0-10]"  type="number" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))" class="form-control "id="coefficient4" placeholder="4th Coefficient Continuation">
-          <input maxlength="10" type="[0-10]"  type="number" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))" class="form-control "id="coefficient5" placeholder=" 5th Coefficient Continuation">
+            <input maxlength="10" type="[0-10]" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))" class="form-control "id="coefficient4" placeholder="4th Coefficient Continuation">
+          <input maxlength="10" type="[0-10]"   onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 49))" class="form-control "id="coefficient5" placeholder=" 5th Coefficient Continuation">
         </div>
       </div>
     
@@ -78,14 +78,14 @@
       </div>
       <div class="long-button">
       <button  class= "button"  id="copy">Copy to Clipboard</button>
-      <button  class= "button"   onclick="Switch()"  id="switch">Switch to Binary</button>
+      <button  class= "button"  id="switch">Switch to Binary</button>
       </div>
       <div class="radio-container">
-      <label class="white-label"><input type="radio" id = "fixed" name="decimal-type" value="Fixed" onclick="hideDecimals()" checked> Fixed Decimal</label>
-      <label class="white-label"><input type="radio" id = "floating" name="decimal-type" value="Floating" onclick=" showDecimals() "> Floating Point</label>
+      <label class="white-label"><input type="radio" id = "fixed" name="decimal-type" value="Fixed" onclick="showDecimals()" checked> Fixed Decimal</label>
+      <label class="white-label"><input type="radio" id = "floating" name="decimal-type" value="Floating" onclick=" hideDecimals() "> Floating Point</label>
       </div>
       <div id="decimal-input" style="display:none;">
-        <label class="white-label" id="num_dec">Number of Decimals:</label>
+        <label id="num_dec">Number of Decimals:</label>
         <input maxlength="2" type="number" id="decimals" name="decimals"   onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"  min="1" max="20">
       </div>
    
