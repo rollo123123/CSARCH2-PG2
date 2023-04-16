@@ -4,19 +4,20 @@ function hextoDecimal() {
 
   if (validateInput_hex(hexInput)){
     var bin = hextoBinary(hexInput)
+    //console.log(bin)
     var sign = bin.charAt(0);
     var combiField = bin.substring(1,6);
     var expoField = bin.substring(6,14);
     const coefficients = [bin.substring(14,24), bin.substring(24,34), bin.substring(34,44), bin.substring(44, 54), bin.substring(54)];
 
-    // console.log(typeof(sign))
-    // console.log(typeof(combiField))
-    // console.log(typeof(expoField))
-    // console.log(typeof(coefficients[0]))
-    // console.log(typeof(coefficients[1]))
-    // console.log(typeof(coefficients[2]))
-    // console.log(typeof(coefficients[3]))
-    // console.log(typeof(coefficients[4]))
+     console.log(sign)
+     console.log(combiField)
+     console.log(expoField)
+     console.log(bin.substring(14,24))
+     console.log(bin.substring(24,34))
+     console.log(bin.substring(34,44))
+     console.log(bin.substring(44, 54))
+     console.log(bin.substring(54,65))
 
     // infinity Special case
     if (combiField === "11110")
@@ -39,7 +40,7 @@ function hextoDecimal() {
         if (combiField.charAt(4) === '0')
           var MSD = 8
         else
-          var MSD = 9;
+          var MSD = 9
       }
       else {
 
@@ -83,12 +84,23 @@ function hextoDecimal() {
       //   output = output.concat(decimal);
       //   output = output.concat(genZeroString(exponent));
       // }
+     
       var dropdown = document.getElementById("decimals")
       var decimalPlaces = dropdown.value
+      console.log(decimalPlaces)
       var floatNum = parseFloat(decimal);
       var multiplier = Math.pow(10, decimalPlaces);
       var roundedNum = Math.round(floatNum * multiplier);
-      output = roundedNum.toString().substr(0, roundedNum.toString().length - decimalPlaces) + "." + roundedNum.toString().substr(roundedNum.toString().length - decimalPlaces);
+      if (sign === "1"){
+        output = "-"
+        output = output.concat(roundedNum.toString().substr(0, roundedNum.toString().length - decimalPlaces) + "." + roundedNum.toString().substr(roundedNum.toString().length - decimalPlaces));
+  
+      }
+      
+      else{
+        output = roundedNum.toString().substr(0, roundedNum.toString().length - decimalPlaces) + "." + roundedNum.toString().substr(roundedNum.toString().length - decimalPlaces);
+      
+      }
 
 
     }
@@ -121,21 +133,21 @@ function hextoBinary(hex) {
   for (let i = 0; i < hex.length; i++) {
       // console.log(hex.charAt(i))
 
-      if(i == 0 ){
+      //if(i == 0 ){
 
-        firstnumbers = firstnumbers.concat(hexDigitToBinary(hex.charAt(i)));
+       // firstnumbers = firstnumbers.concat(hexDigitToBinary(hex.charAt(i)));
 
-        binary = binary.concat(firstnumbers.charAt(1));
-        binary = binary.concat(firstnumbers.charAt(2));
-        binary = binary.concat(firstnumbers.charAt(3));
-        console.log(firstnumbers.charAt(1))
-        console.log(firstnumbers.charAt(2))
-        console.log(firstnumbers.charAt(3))
-      }else{
+      //   binary = binary.concat(firstnumbers.charAt(1));
+      //   binary = binary.concat(firstnumbers.charAt(2));
+      //   binary = binary.concat(firstnumbers.charAt(3));
+      //   console.log(firstnumbers.charAt(1))
+      //   console.log(firstnumbers.charAt(2))
+      //   console.log(firstnumbers.charAt(3))
+      // }else{
         binary = binary.concat(hexDigitToBinary(hex.charAt(i)));
-      }
+     // }
 
-   // console.log(hexDigitToBinary(hex.charAt(i)))
+    //console.log(hexDigitToBinary(hex.charAt(i)))
   }
 
   return binary;
@@ -375,7 +387,17 @@ function genZeroString(num) {
       var floatNum = parseFloat(decimal);
       var multiplier = Math.pow(10, decimalPlaces);
       var roundedNum = Math.round(floatNum * multiplier);
-      output = roundedNum.toString().substr(0, roundedNum.toString().length - decimalPlaces) + "." + roundedNum.toString().substr(roundedNum.toString().length - decimalPlaces);
+      if (sign === "1"){
+        output = "-"
+        output = output.concat(roundedNum.toString().substr(0, roundedNum.toString().length - decimalPlaces) + "." + roundedNum.toString().substr(roundedNum.toString().length - decimalPlaces));
+  
+      }
+      
+      else{
+        output = roundedNum.toString().substr(0, roundedNum.toString().length - decimalPlaces) + "." + roundedNum.toString().substr(roundedNum.toString().length - decimalPlaces);
+      
+      }
+     
 
 
     }
