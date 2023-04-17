@@ -9,7 +9,8 @@ To use the web application, please go to this deployed link: https://csarch2-pg2
 If any error occurs, please send an email to: 
 edric_jarvis_chua@dlsu.edu.ph
 rollo_velarde@dlsu.edu.ph
-
+hyenne_lim@dlsu.edu.ph
+aaron_lensmer_abdon@dlsu.edu.ph
 
 Directions for the application:
 1) Input a Hexadecimal value
