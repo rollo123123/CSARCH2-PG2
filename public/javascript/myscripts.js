@@ -1,17 +1,5 @@
 
 
-function showDecimals() {
-    document.getElementById("decimal-input").style.display = "flex";
-    document.getElementById("decimal-input").style.flexDirection = "column";
-    document.getElementById("decimal-input").style.justifyContent = "space-evenly";
- 
-  }
-  
-  function hideDecimals() {
-    document.getElementById("decimal-input").style.display = "none";
-   
-  }
-
   function copyClipboard() {
     const divElement = document.getElementById('output');
 

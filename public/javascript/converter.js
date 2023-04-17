@@ -53,6 +53,9 @@ function hextoDecimal() {
         //Finding out what the actual MSD is
         var msdString = combiField.substring(2);
         var MSD = parseInt(msdString, 2);
+
+        console.log("MSD string is " + msdString);
+        console.log("MSD is " + MSD);
       }
 
       //Preparing the sign
@@ -71,37 +74,31 @@ function hextoDecimal() {
 
       if (document.getElementById("fixed").checked) {
 
-      // if (exponent < 0) {
-      //   let overflow = decimal.length + exponent;
-      //   if (overflow < 0)
-      //     output = output.concat("0." + genZeroString(Math.abs(overflow)) + decimal);
-      //   else if (overflow > 0)
-      //     output = output.concat(decimal.substring(0,overflow) + "." + decimal.substring(overflow));
-      //   else
-      //     output = output.concat(decimal);
-      // }
-      // else {
-      //   output = output.concat(decimal);
-      //   output = output.concat(genZeroString(exponent));
-      // }
-     
-      var dropdown = document.getElementById("decimals")
-      var decimalPlaces = dropdown.value
-      console.log(decimalPlaces)
-      var floatNum = parseFloat(decimal);
-      var multiplier = Math.pow(10, decimalPlaces);
-      var roundedNum = Math.round(floatNum * multiplier);
-      if (sign === "1"){
-        output = "-"
-        output = output.concat(roundedNum.toString().substr(0, roundedNum.toString().length - decimalPlaces) + "." + roundedNum.toString().substr(roundedNum.toString().length - decimalPlaces));
-  
+      if (exponent < 0) {
+        let overflow = decimal.length + exponent;
+        if (overflow < 0)
+          output = output.concat("0." + genZeroString(Math.abs(overflow)) + decimal);
+        else if (overflow > 0)
+          output = output.concat(decimal.substring(0,overflow) + "." + decimal.substring(overflow));
+        else
+          output = output.concat(decimal);
       }
-      
-      else{
-        output = roundedNum.toString().substr(0, roundedNum.toString().length - decimalPlaces) + "." + roundedNum.toString().substr(roundedNum.toString().length - decimalPlaces);
-      
+      else {
+        if (MSD==0) {
+          for (let i = 0; i < decimal.length; i++) {
+            if (decimal[i] != "0") {
+              var newDecimal = decimal.substring(i);
+              break;
+            }
+          }
+          output = output.concat(newDecimal);
+          output = output.concat("." + genZeroString(4));
+        }
+        else {
+          output = output.concat(decimal);
+          output = output.concat(genZeroString(exponent));
+        }
       }
-
 
     }
       else if (document.getElementById("floating").checked) {
