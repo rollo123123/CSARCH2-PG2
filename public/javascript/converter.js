@@ -10,15 +10,6 @@ function hextoDecimal() {
     var expoField = bin.substring(6,14);
     const coefficients = [bin.substring(14,24), bin.substring(24,34), bin.substring(34,44), bin.substring(44, 54), bin.substring(54)];
 
-     console.log(sign)
-     console.log(combiField)
-     console.log(expoField)
-     console.log(bin.substring(14,24))
-     console.log(bin.substring(24,34))
-     console.log(bin.substring(34,44))
-     console.log(bin.substring(44, 54))
-     console.log(bin.substring(54,65))
-
     // infinity Special case
     if (combiField === "11110")
       var output = "infinity"; 
@@ -128,23 +119,7 @@ function hextoBinary(hex) {
 
   var firstnumbers = "";
   for (let i = 0; i < hex.length; i++) {
-      // console.log(hex.charAt(i))
-
-      //if(i == 0 ){
-
-       // firstnumbers = firstnumbers.concat(hexDigitToBinary(hex.charAt(i)));
-
-      //   binary = binary.concat(firstnumbers.charAt(1));
-      //   binary = binary.concat(firstnumbers.charAt(2));
-      //   binary = binary.concat(firstnumbers.charAt(3));
-      //   console.log(firstnumbers.charAt(1))
-      //   console.log(firstnumbers.charAt(2))
-      //   console.log(firstnumbers.charAt(3))
-      // }else{
         binary = binary.concat(hexDigitToBinary(hex.charAt(i)));
-     // }
-
-    //console.log(hexDigitToBinary(hex.charAt(i)))
   }
 
   return binary;
@@ -366,36 +341,31 @@ function genZeroString(num) {
 
      if (document.getElementById("fixed").checked) {
 
-      // if (exponent < 0) {
-      //   let overflow = decimal.length + exponent;
-      //   if (overflow < 0)
-      //     output = output.concat("0." + genZeroString(Math.abs(overflow)) + decimal);
-      //   else if (overflow > 0)
-      //     output = output.concat(decimal.substring(0,overflow) + "." + decimal.substring(overflow));
-      //   else
-      //     output = output.concat(decimal);
-      // }
-      // else {
-      //   output = output.concat(decimal);
-      //   output = output.concat(genZeroString(exponent));
-      // }
-      var dropdown = document.getElementById("decimals")
-      var decimalPlaces = dropdown.value
-      var floatNum = parseFloat(decimal);
-      var multiplier = Math.pow(10, decimalPlaces);
-      var roundedNum = Math.round(floatNum * multiplier);
-      if (sign === "1"){
-        output = "-"
-        output = output.concat(roundedNum.toString().substr(0, roundedNum.toString().length - decimalPlaces) + "." + roundedNum.toString().substr(roundedNum.toString().length - decimalPlaces));
-  
+      if (exponent < 0) {
+        let overflow = decimal.length + exponent;
+        if (overflow < 0)
+          output = output.concat("0." + genZeroString(Math.abs(overflow)) + decimal);
+        else if (overflow > 0)
+          output = output.concat(decimal.substring(0,overflow) + "." + decimal.substring(overflow));
+        else
+          output = output.concat(decimal);
       }
-      
-      else{
-        output = roundedNum.toString().substr(0, roundedNum.toString().length - decimalPlaces) + "." + roundedNum.toString().substr(roundedNum.toString().length - decimalPlaces);
-      
+      else {
+        if (MSD==0) {
+          for (let i = 0; i < decimal.length; i++) {
+            if (decimal[i] != "0") {
+              var newDecimal = decimal.substring(i);
+              break;
+            }
+          }
+          output = output.concat(newDecimal);
+          output = output.concat("." + genZeroString(4));
+        }
+        else {
+          output = output.concat(decimal);
+          output = output.concat(genZeroString(exponent));
+        }
       }
-     
-
 
     }
     else if (document.getElementById("floating").checked) {
