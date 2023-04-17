@@ -4,7 +4,11 @@ IEEE-754 Decimal-64 floating point translator (including all special cases)
 
 USER MANUAL:
 To use the web application, please go to this deployed link: https://csarch2-pg2-production.up.railway.app/
-If any error occurs, please send an email to: rollo_velarde@dlsu.edu.ph
+
+
+If any error occurs, please send an email to: 
+edric_jarvis_chua@dlsu.edu.ph
+rollo_velarde@dlsu.edu.ph
 
 
 Directions for the application:
