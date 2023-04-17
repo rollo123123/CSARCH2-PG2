@@ -81,7 +81,7 @@
       <button  class= "button"  id="switch">Switch to Binary</button>
       </div>
       <div class="radio-container">
-      <label class="white-label"><input type="radio" id = "fixed" name="decimal-type" value="Fixed" onclick="showDecimals()"> Fixed Decimal</label>
+      <label class="white-label"><input type="radio" id = "fixed" name="decimal-type" value="Fixed" onclick="showDecimals()" checked> Fixed Decimal</label>
       <label class="white-label"><input type="radio" id = "floating" name="decimal-type" value="Floating" onclick=" hideDecimals() "> Floating Point</label>
       </div>
       <div id="decimal-input" style="display:none;">
@@ -98,10 +98,11 @@
       <h1 id="Answer">Answer</h1>
 
       <!-- fixed DECIMAL?:   https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-data-types -->
-      <h1 id="output">Output Here</h1>
+      <h3 id="output">Output Here</h3>
 
     </div>
-
+    
+    <h3> Please press "Convert" when changing from Floating point to Fixed and vice versa </h3>
 
 </body>
 </html>

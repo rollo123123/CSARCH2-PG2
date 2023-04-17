@@ -53,6 +53,7 @@
 
     clearButton.addEventListener("click", function() {
       myForm.reset();
+     document.getElementById("output").innerHTML = "Output Here";
     });
 
 
@@ -76,6 +77,7 @@
      document.getElementById("all-container").style.margin = "6em auto";
      document.getElementById("Hex-input").style.display = "none";
      document.getElementById("switch").innerHTML =   'Switch to Hexadecimal';
+     document.getElementById("output").innerHTML = "Output Here";
      myForm.reset();
     }else{
       document.getElementById("title").innerHTML = '16 Hex Input';
@@ -84,6 +86,7 @@
       document.getElementById("convertbin").style.display = "none";
       document.getElementById("converthex").style.display = "block";
      document.getElementById("switch").innerHTML =   'Switch to Binary';
+     document.getElementById("output").innerHTML = "Output Here";
       myForm.reset();
     }
     pressed = !pressed

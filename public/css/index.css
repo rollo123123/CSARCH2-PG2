@@ -98,7 +98,15 @@ h1 {
     margin: 1em auto;
 }
 
-
+h3 {
+    font-size: 3rem;
+    text-align: center;
+    animation-duration: 4s;
+    animation-name: header;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    margin: 1em auto;
+}
 
 @keyframes header {
     0%   {color: white;}
