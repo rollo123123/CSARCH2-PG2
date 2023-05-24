@@ -3,7 +3,7 @@ IEEE-754 Decimal-64 floating point translator (including all special cases)
 
 
 USER MANUAL:
-To use the web application, please go to this deployed link: https://csarch2-pg2-production.up.railway.app/
+To use the web application, please go to this deployed link: https://csarch2-pg2-production.up.railway.app/ (Site closed down, site hosting is paid)
 
 
 If any error occurs, please send an email to: 
